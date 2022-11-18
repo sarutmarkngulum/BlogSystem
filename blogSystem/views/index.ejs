@@ -7,11 +7,14 @@
   <title>Document</title>
 </head>
 <body>
-  <% posts.forEach(function(post) {%> 
-    <h2><%= post.title %> </h2>
-    <img src="<%= post.img  %> ">
-    <hr>
-    <%= post.content %> 
-  <% }) %> 
+  <%- include ('layout') %> 
+  <div class="container">
+    <% posts.forEach(function(post) {%> 
+      <h2><%= post.title %> </h2>
+      <img src="<%= post.img  %> ">
+      <hr>
+      <%= post.content %> 
+    <% }) %> 
+  </div>
 </body>
 </html>
