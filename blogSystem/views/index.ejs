@@ -22,7 +22,7 @@
         <!-- Blog Entries Column -->
         <div class="col-md-8">
   
-          <h1 class="my-4">บทความ</h1>
+          <h3 class="my-4">บทความทั้งหมด</h3>
   
           <!-- Blog Post -->
             <% posts.forEach(function(post) {%> 
@@ -30,13 +30,14 @@
                 <img class="card-img-top" src="<%= post.img %> " alt="Card image cap" width="500" height="500">
                 <div class="card-body">
                   <h2 class="card-title"><%= post.title %></h2>
-                  <p class="card-text"><%= post.content %>
+                  <p class="card-text">
+                    <%- descriptionText(post.content,400) %>
                   </p>
-                  <a href="#" class="btn btn-primary">Read More &rarr;</a>
+                  <a href="/show/<%= post._id %>" class="btn btn-primary">Read More &rarr;</a>
                 </div>
                 <div class="card-footer text-muted">
-                  Posted on January 1, 2017 by
-                  <a href="#"><%= post.author %></a> , <a href="#"><%= post.category %></a>
+                  Posted on <%= moment(post.date).format("DD-MM-YYYY") %> by
+                  <a href="/posts/show/?author=<%=post.author %>"><%= post.author %></a> ,  <a href="/posts/show/?category=<%=post.category %>"><%=post.category%></a>
                 </div>
               </div>
             <% }) %>    

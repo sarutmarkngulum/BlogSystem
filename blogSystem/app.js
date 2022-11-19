@@ -23,6 +23,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+app.locals.descriptionText=function(text,length){
+    return text.substring(0,length);
+}
 
 
 module.exports = app;
